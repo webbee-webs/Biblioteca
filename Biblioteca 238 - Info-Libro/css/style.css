@@ -1,6 +1,7 @@
+
 .signin, #listado {
-    width: 100%;
-    max-width: 500px;
+    /* width: 100%; */
+    /* max-width: 500px; */
     padding: 15px;
     margin: auto;
     background-color: beige;
@@ -26,6 +27,8 @@
   background-color: rgb(229, 245, 220);
   border: 1px black solid; 
 }
+
+
 
 
 

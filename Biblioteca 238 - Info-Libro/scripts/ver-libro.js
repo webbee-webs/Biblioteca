@@ -5,34 +5,78 @@ getJSONData(LIBRO_URL + `${localStorage.getItem('libroID')}.json`)
     })
 var container = document.getElementById('contenido')
 
-const renderImg = (imagenes)=>{
-    let html = ``
-    for (img of imagenes) {
+const renderImg = (imagenes) => {
+    let html = ``;
+
+    for (let i = 1; i < imagenes.length; i++) {
+        let image = imagenes[i];
+
         html += `
-        <div class="carousel-item active">
-        <img src="${img}" class="d-block w-100" alt="...">
+        <div class="carousel-item">
+        <img src="${image}" class="d-block w-100" alt="...">
         </div>
         `
+            ;
     }
-    return(html)
+
+    return html;
+
 }
 
 const render = (data) => {
+    console.log(data)
     container.innerHTML += `<div class="card">
-    <<div id="carouselExampleSlidesOnly" style="width: 100px" class="card-img-top carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner">
-    ${renderImg(data.imagenes)}
+    <div class="d-flex justify-content-center">
+        <div id="carouselExampleControls" class="carousel slide" style="width: 20vw; min-width: 300px;"  data-bs-ride="carousel">
+            <div class="carousel-inner">
+            <div class="carousel-item active">
+            <img src="${data.imagenes[0]}" class="d-block w-100" alt="...">
+            </div>
+            ${renderImg(data.imagenes)}
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+        </button>
     </div>
+
     </div>
     <div class="card-body">
         <h2 class="card-title">${data.titulo}</h2>
-        <h4 class="text-muted">${data.autor}</h4>
+        <h4 class="text-muted">${data.autor} - ${data.editorial}</h4>
         <p class="card-text">${data.descripcion}</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
     </div>
     </div>`
+    relacionados(data.relacionados)
 }
 
+
+/* -------------------------------------------------------------------------- */
+/*                                Relacionados                                */
+/* -------------------------------------------------------------------------- */
+
+const relacionados = async (libros) => {
+    let catalogoDeLibrosRelacionados = document.getElementById('libros-relacionados__container')
+    for (libroID of libros) {
+        let libro = await getJSONData(LIBRO_URL + `${libroID}.json`)
+            .then(e => {
+                console.log(e)
+                return e
+            })
+        catalogoDeLibrosRelacionados.innerHTML += `
+        <div class="card m-4" style="width: 18rem; cursor:pointer;" onclick="redireccionar(${libroID})">
+            <div class="d-flex justify-content-center"><img src="${libro.data.imagenes[0]}" style="width: 200px;" class="card-img-top" alt="..."></div>
+            <div class="card-body">
+                <h5 class="card-title">${libro.data.titulo}</h5>
+            </div>
+        </div>
+        `
+    }
+}
 
 
 

@@ -22,3 +22,8 @@ function getJSONData(url){
         return result;
     });
 }
+
+function redireccionar(id) {
+  localStorage.setItem("libroID", id);
+  window.location = "ver-libro.html";
+}

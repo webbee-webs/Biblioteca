@@ -3,11 +3,6 @@ let min = undefined;
 let max = undefined;
 let search = undefined;
 
-function redireccionar(id) {
-    localStorage.setItem("libroID", id);
-    window.location = "ver-libro.html";
-}
-
 function mostrarLibros(arrayLibros) {
     document.getElementById("listado").innerHTML = "";
     for (let libro of arrayLibros) {
