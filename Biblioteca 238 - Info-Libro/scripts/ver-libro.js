@@ -23,9 +23,10 @@ const renderImg = (imagenes) => {
 
 }
 
-const render = (data) => {
+const render = async(data) => {
     console.log(data)
-    container.innerHTML += `<div class="card">
+    console.log(localStorage.getItem('libroID'))
+    container.innerHTML += `<div class="card book">
     <div class="d-flex justify-content-center">
         <div id="carouselExampleControls" class="carousel slide" style="width: 20vw; min-width: 300px;"  data-bs-ride="carousel">
             <div class="carousel-inner">
@@ -43,12 +44,12 @@ const render = (data) => {
         <span class="visually-hidden">Next</span>
         </button>
     </div>
-
     </div>
     <div class="card-body">
         <h2 class="card-title">${data.titulo}</h2>
         <h4 class="text-muted">${data.autor} - ${data.editorial}</h4>
         <p class="card-text">${data.descripcion}</p>
+        <button class="btn btn-primary" type="submit"><a href="./cajon.html" class="text-white" style="text-decoration:none;" onclick='setCajon(${JSON.stringify(data)}, ${localStorage.getItem('libroID')})'>Ir al cajon</a></button>
     </div>
     </div>`
     relacionados(data.relacionados)
@@ -74,6 +75,8 @@ const relacionados = async (libros) => {
                 <h5 class="card-title">${libro.data.titulo}</h5>
             </div>
         </div>
+
+        
         `
     }
 }
@@ -94,3 +97,4 @@ const relacionados = async (libros) => {
 //     ],
 //     "relacionados":[3,5]
 // }
+

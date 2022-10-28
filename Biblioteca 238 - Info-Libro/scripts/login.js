@@ -17,6 +17,7 @@ document.getElementById("submitBtn").addEventListener("click", function () {
     }
 
     if (seCumple) {
+        sessionStorage.setItem('userID', email)
         window.location.href = "index.html";
         
     }

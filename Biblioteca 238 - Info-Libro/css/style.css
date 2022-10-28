@@ -28,7 +28,19 @@
   border: 1px black solid; 
 }
 
+body{
+  background-image: url('../fondo.jpg');
+  background-size: cover;
+  padding: 20px;
+}
 
+.book{
+  padding: 20px;
+  background-image: url('../nota.jpg');
+  background-size: cover;
+}
 
-
-
+div.d-flex.justify-content-center{
+  padding: 30px;
+  border-radius: 15px 15px 0px 0px;
+}

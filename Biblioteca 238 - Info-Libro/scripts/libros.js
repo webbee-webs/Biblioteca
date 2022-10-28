@@ -14,7 +14,7 @@ function mostrarLibros(arrayLibros) {
 
             if (search == undefined || search == "" || libro.titulo.toLowerCase().indexOf(search.toLowerCase()) > -1) {
                 let contenido = `
-                <li onclick="redireccionar(${libro.id})">
+                <li onclick="redireccionar(${libro.id})" class='book btn d-block text-start'>
                     Título: ${libro.titulo} <br>
                     Autor: ${libro.autor} <br>
                     Páginas: ${libro.paginas}

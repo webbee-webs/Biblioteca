@@ -1,3 +1,26 @@
-input{
+body {
+    height: 100vh;
+    background-image: url('../fondo.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+input {
     max-width: 300px;
+}
+
+nav.navbar {
+    background: rgb(82, 39, 14);
+    background: linear-gradient(280deg, rgba(82, 39, 14, 1) 0%, rgba(22, 17, 14, 1) 100%);
+}
+
+li.book {
+    background-image: url('../nota.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: background .5s;
+}
+
+.book:hover {
+    filter: brightness(.9);
 }

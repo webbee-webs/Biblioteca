@@ -1,0 +1,22 @@
+Crear cajon de prestamos:
+# ---------------- - almacenar datos de usuario (forzar login) --------------- #
+# ---------- - agregar al cajon (boton para cada libro) y proceso - ---------- #
+# ------------------- - funcion de quitar libros del cajon ------------------- #
+# ----------------------------- - crear el cajon ----------------------------- #
+# ------------------------ - boton de acceso al cajon ------------------------ #
+# ------------------------ - mostrar libros del cajon ------------------------ #
+
+Subprocesos
+- calculo de dias: 
+	- obtener dia
+	- calcular pag/50
+
+
+Datos de envio
+- crear form (modal)
+- boton de confirmacion de prestamo (submit)
+
+Validaciones:
+- no mas de 3 libros
+- validar datos form (Departamento, ciudad, calle, número)
+# ---------------------------- - plazo max 15 dias --------------------------- #
